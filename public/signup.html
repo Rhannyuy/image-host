@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script
+  src="https://code.jquery.com/jquery-3.1.1.js"
+  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+    <h3>Signup</h3>
+    <p id="error"></p>
+	<lable>Username:</lable>  <input type="text" id="Username" placeholder="Username"><br><br>
+	<!-- <lable>First Name:</lable>  <input type="text" id="FirstName" placeholder="Firstname"><br><br>
+    <lable>Email:</lable>  <input type="text" id="email" placeholder="email"><br><br>
+	 --><lable>Password:</lable>  <input type="password" id="password" placeholder="Password"><br><br>
+	<!--<p>Retype Password:</p><input type="text" id="password" placeholder="Retype Password"> -->
+    <!-- <lable>Number:</lable><input type="number" class="form-control" id="num" placeholder="Number"><br><br> -->
+    <button type="submit" class="btn btn-primary" id="reg-form-btn">Registration!</button>
+
+
+
+	<script>
+	$(document).ready(function() {
+
+        $("#reg-form-btn").click(function() {
+            var Username = $("#Username").val();
+            // var firstname = $("#FirstName").val();
+            // var email = $("#email").val();
+            var password = $("#password").val();
+            // var num = $("#num").val();
+           
+            $.post("/api/signup", {
+                Name: Username,
+                Pass: password
+            }, function(res){
+            	console.log(res);
+            });
+
+        });
+    });
+
+	</script>
+</body>
+</html>
